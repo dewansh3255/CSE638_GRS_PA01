@@ -1,0 +1,5 @@
+Program_A
+Program_B
+*.o
+*.zip
+.DS_Store
