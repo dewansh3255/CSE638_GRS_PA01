@@ -1,7 +1,7 @@
 Program,Task,Execution_Time_Sec,Avg_CPU_Usage,Avg_Disk_Write_KB
-Program_A,cpu,67.985803920,33.4355,4.9575
-Program_A,mem,.208175750,43.8,242.53
-Program_A,io,1.346050251,7.24,121.24
-Program_B,cpu,68.535890281,99.8304,3.8029
-Program_B,mem,.211752417,93.3,239.84
-Program_B,io,1.353884417,21,119.895
+Program_A,cpu,77.348631716,33.4235,3.03128
+Program_A,mem,.209707417,46.7,103.99
+Program_A,io,1.412407418,7.08,51.99
+Program_B,cpu,70.288783074,99.8471,1.74423
+Program_B,mem,.210575542,87.5,103.48
+Program_B,io,1.621030042,19.5,51.735
