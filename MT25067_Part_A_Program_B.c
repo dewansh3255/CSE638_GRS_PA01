@@ -1,5 +1,5 @@
 /*
- * Part A & D: Program B
+ * Part A: Program B
  * Creates N threads using pthread (Default N=2)
  * Usage: ./Program_B <cpu|mem|io> [num_threads]
  */
@@ -24,9 +24,9 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    int num_threads = 2; // Default for Part A [cite: 15]
+    int num_threads = 2; // Default for Part A
     if (argc >= 3) {
-        num_threads = atoi(argv[2]); // Override for Part D [cite: 50]
+        num_threads = atoi(argv[2]); // Override for Part D
     }
 
     pthread_t *threads = malloc(sizeof(pthread_t) * num_threads);

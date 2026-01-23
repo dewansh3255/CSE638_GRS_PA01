@@ -1,5 +1,5 @@
 /*
- * Part A & D: Program A
+ * Part A: Program A
  * Creates N processes using fork() (Default N=2)
  * Usage: ./Program_A <cpu|mem|io> [num_processes]
  */
@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
-#include "MT25067_Part_B_workers.h" // Changed to your specific header
+#include "MT25067_Part_B_workers.h"
 
 void execute_task(const char *type) {
     if (strcmp(type, "cpu") == 0) run_cpu_intensive();
@@ -27,9 +27,9 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    int num_children = 2; // Default for Part A [cite: 14]
+    int num_children = 2; // Default for Part A
     if (argc >= 3) {
-        num_children = atoi(argv[2]); // Override for Part D [cite: 46]
+        num_children = atoi(argv[2]); // Override for Part D
     }
 
     for (int i = 0; i < num_children; i++) {

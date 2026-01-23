@@ -13,7 +13,7 @@ make
 
 echo "Starting Part D Scalability Measurements..."
 
-# 1. Program A (Processes): 2, 3, 4, 5 [cite: 46]
+# 1. Program A (Processes): 2, 3, 4, 5
 # We stick to 'cpu' task as it highlights parallelism best, 
 # but you can change 'task' to 'mem' or 'io' if you prefer or run all.
 # The prompt implies running the variants. Let's pick 'cpu' for clear scaling results.
@@ -45,7 +45,7 @@ for count in {2..5}; do
     sleep 1
 done
 
-# 2. Program B (Threads): 2, 3, 4, 5, 6, 7, 8 [cite: 50]
+# 2. Program B (Threads): 2, 3, 4, 5, 6, 7, 8
 for count in {2..8}; do
     echo "Running Program_B (Threads) with $count threads..."
     

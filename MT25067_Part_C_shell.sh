@@ -20,13 +20,12 @@ for prog in "${PROGRAMS[@]}"; do
         echo "Running $prog with $task..."
 
         # 1. Start Logging in Background
-        # 'top': -b (batch), -d 1 (delay 1s), -p (monitor specific PID later? No, grep name)
-        # We filter by program name. Linux top output lines: PID USER ... %CPU ...
+        # 'top': -b (batch), -d 1 (delay 1s), -p (process). We will grep for our program.
         top -b -d 1 | grep --line-buffered "$prog" > top_log.txt &
         TOP_PID=$!
 
-        # 'iostat': -d (disk), -k (kB), 1 (interval). 
-        # We will parse sda (or vda/simulated disk) later.
+        # 'iostat': -d (disk), -k (kB), 1 (interval)
+        # We will parse sda (or vda/simulated disk) later
         iostat -d -k 1 > iostat_log.txt &
         IO_PID=$!
 
@@ -50,8 +49,6 @@ for prog in "${PROGRAMS[@]}"; do
         avg_cpu=$(awk '{sum+=$9; count++} END {if (count > 0) print sum/count; else print 0}' top_log.txt)
 
         # Parse Disk: loop over iostat and look for the main disk (usually sda or vda in Docker)
-        # If inside Docker, it might be 'vda' or 'overlay'. We take the max write column found.
-        # Usually col 4 is kB_wrtn/s.
         avg_disk=$(grep -E "sda|vda|xvda" iostat_log.txt | awk '{sum+=$4; count++} END {if (count > 0) print sum/count; else print 0}')
 
         echo "Finished $prog + $task: Time=$duration, CPU=$avg_cpu, Disk=$avg_disk"
