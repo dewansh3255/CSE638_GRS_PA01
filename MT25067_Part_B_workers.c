@@ -43,7 +43,7 @@ void run_cpu_intensive() {
 // 2. MEM: Needs LESS work to avoid 17-minute runtime
 void run_mem_intensive() {
     long count = get_iterations();
-    size_t size = 1 * 1024 * 1024; 
+    size_t size = 10 * 1024 * 1024; 
     char *buffer = (char *)malloc(size);
     if (!buffer) return;
 

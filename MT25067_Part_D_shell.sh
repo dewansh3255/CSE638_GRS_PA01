@@ -29,7 +29,7 @@ for count in {2..5}; do
 
     start_time=$(date +%s.%N)
     # Pass the count as the second argument
-    taskset -c 0 ./Program_A $TASK $count
+    taskset -c 0-2 ./Program_A $TASK $count
     end_time=$(date +%s.%N)
 
     kill $TOP_PID 2>/dev/null
@@ -55,7 +55,7 @@ for count in {2..8}; do
     IO_PID=$!
 
     start_time=$(date +%s.%N)
-    taskset -c 0 ./Program_B $TASK $count
+    taskset -c 0-2 ./Program_B $TASK $count
     end_time=$(date +%s.%N)
 
     kill $TOP_PID 2>/dev/null

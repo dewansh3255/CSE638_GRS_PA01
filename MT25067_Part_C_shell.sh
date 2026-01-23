@@ -30,11 +30,11 @@ for prog in "${PROGRAMS[@]}"; do
         iostat -d -k 1 > iostat_log.txt &
         IO_PID=$!
 
-        # 2. Run Program with Taskset (Pin to CPU 0 as per Source 32)
+        # 2. Run Program with Taskset
         start_time=$(date +%s.%N)
         
-        # taskset -c 0 pins the process to the first CPU core
-        taskset -c 0 ./$prog $task
+        # taskset -c 0-2 pins the process to the first three CPU cores
+        taskset -c 0-2 ./$prog $task
         
         end_time=$(date +%s.%N)
 
